@@ -75,7 +75,7 @@ for(i in 1:length(all_url)){
                 try(actor3[j] <- xpathSApply(restext3,"//div[@class='credit_summary_item'][3]/span[3]/a/span[@class='itemprop']",xmlValue),silent = TRUE)
                 try(genre[j] <- xpathSApply(restext3,"//div[@class='see-more inline canwrap'][2]/a[1]",xmlValue),silent = TRUE)
                 try(time[j] <- str_extract(xpathSApply(restext3,"//time",xmlValue)[2],"[0-9]+"),silent = TRUE)
-                try(metascore[j] <-str_extract(xpathSApply(restext3,"//div[@class='titleReviewBarItem']",xmlValue)[1],"[0-9]+"),silent = TRUE)
+                try(metascore[j] <-str_extract(xpathSApply(restext3,"//div[@class='titleReviewBarItem'][1]/a",xmlValue)[1],"[0-9]+"),silent = TRUE)
                 rank_dat <- cbind(genre[j],dir[j],actor1[j],actor2[j],actor3[j],time[j],metascore[j],rank_value[j],r1=each_rank_value[[j]][1],r2=each_rank_value[[j]][2],r3=each_rank_value[[j]][3],r4=each_rank_value[[j]][4],r5=each_rank_value[[j]][5]
                                   ,r6=each_rank_value[[j]][6],r7=each_rank_value[[j]][7],r8=each_rank_value[[j]][8],r9=each_rank_value[[j]][9],r10=each_rank_value[[j]][10])
                 data <- rbind(data,as.data.frame(rank_dat))
