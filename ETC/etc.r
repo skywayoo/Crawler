@@ -1,7 +1,3 @@
-library(httr)
-library(stringr)
-getwd()
-setwd("~/kaokon/")
 
 ## M03A - M08A
 MA <- c("03","04","05","06","07","08")
@@ -30,7 +26,7 @@ hr <- c("00","01","02","03","04","05","06","07","08","09","10",11:23)
         setwd(paste(str_extract(folder,"[0-9]+")[fo],sep=""))
         dir.create(paste(hr[h],sep=""))
         setwd(paste(hr[h],sep=""))
-        download.file(paste(f_url[fo],f_res[f],sep=""),destfile=f_res[f])
+        download.file(paste(f_url[h],f_res[f],sep=""),destfile=f_res[f])
         setwd(paste("~/kaokon/",MxxA[n],sep=""))
         Sys.sleep(5)
         }
